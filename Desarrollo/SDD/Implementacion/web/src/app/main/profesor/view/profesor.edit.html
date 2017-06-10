@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <button class="btn btn-info" ui-sref="index.panel-principal" style="float:right;">Regresar</button>
+        <form class="form card-container">
+            <h3>Datos Personales</h3>
+            <div class="form-group">
+                <label>Codigo:</label>
+                <input type="" class="form-control" value="{{ctrl.profesor.codigo}}" disabled="true">
+            </div>
+            <div class="form-group">
+                <label>Nombres</label>
+                <input type="" class="form-control" value="{{ctrl.profesor.nombres}}" disabled="true">
+            </div>
+            <div class="form-group">
+                <label>Apellido Paterno</label>
+                <input type="" class="form-control" value="{{ctrl.profesor.apellidoPaterno}}" disabled="true">
+            </div>
+            <div class="form-group">
+                <label>Apellido Materno</label>
+                <input type="" class="form-control" value="{{ctrl.profesor.apellidoMaterno}}" disabled="true">
+            </div>
+            <div class="form-group">
+                <label>Modalidad</label>
+                <input type="" class="form-control" value="{{ctrl.profesor.modalidad.tipo}}" disabled="true">
+            </div>
+            <div class="form-group">
+                <label>Telefono</label>
+                <input type="" class="form-control" ng-model="ctrl.profesor.telefono" value="{{ctrl.profesor.telefono}}">
+            </div>
+            <div class="form-group">
+                <label>Correo</label>
+                <input type="" class="form-control" ng-model="ctrl.profesor.correo" value="{{ctrl.profesor.correo}}">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="ctrl.submit()" type="submit">Guardar</button>
+            </div>
+            <input type="hidden" ng-model="ctrl.profesor.editoPerfil" value="true"/>
+        </form>
+    </div>
+</div>
