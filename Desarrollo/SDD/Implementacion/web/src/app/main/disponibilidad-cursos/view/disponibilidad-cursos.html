@@ -1,0 +1,44 @@
+
+<div class="container">
+    <div class="card">
+        <form class="form card-container">
+            <button class="btn btn-info" ui-sref="index.panel-principal" style="float:right;">Regresar</button>
+            <h3>Seleccionar Cursos a dictar</h3>
+            <div class="form-group row">
+                <label class="col-xs-5">Ciclo:</label>
+                <span class="col-xs-2">2017-1</span>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-2">Escuela</div>
+                <div class="col-xs-10">
+                    <select class="form-control" ng-model="ctrl.disponibilidad.escuela" ng-options="escuela.nombre for escuela in ctrl.escuelas"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-2">Cursos</div>
+                <div class="col-xs-7">
+                    <select class="form-control" ng-model="ctrl.cursoSelected" ng-options="curso.nombre for curso in ctrl.cursos"></select>
+                </div>
+                <div class="col-xs-3">
+                    <button class="btn btn-warning" style="cursor: pointer;"ng-click="ctrl.agregar()">Agregar</button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-xs-2">Mis cursos</div>
+                <div class="col-xs-10">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="curso in ctrl.disponibilidad.cursos track by $index">
+                            <p>
+                                {{curso.nombre}}<span style="cursor:pointer;color:red;float:right;" class="glyphicon glyphicon-remove" ng-click="ctrl.remover($index)"></span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block btn-signin" ng-click="ctrl.submit()" type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>

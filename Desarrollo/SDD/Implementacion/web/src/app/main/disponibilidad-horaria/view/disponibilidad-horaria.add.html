@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="card ">
+        <button class="btn btn-info" ui-sref="index.panel-principal" style="float:right;">Regresar</button>
+        <h3>Profesor:</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Codigo</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Nombres</th>
+                <th>Modalidad</th>
+                <th>Horas</th>
+            </tr>
+            <tr>
+                <td>{{ctrl.profesor.codigo}}</td>
+                <td>{{ctrl.profesor.apellidoPaterno}}</td>
+                <td>{{ctrl.profesor.apellidoMaterno}}</td>
+                <td>{{ctrl.profesor.nombres}}</td>
+                <td>{{ctrl.profesor.modalidad.tipo}}</td>
+                <td>{{ctrl.disponibilidades.length}}</td>
+            </tr>
+        </table>
+
+        <h3>Disponibilidad</h3>
+        <table class="table table-bordered" id="disponibilidad_horaria" style="border:1px solid black;">
+            <tr>
+                <th>Horario</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+                <th>Sabado</th>
+            </tr>
+            <tr ng-repeat="intervalo in ctrl.intervalos">
+                <td>{{intervalo.hora_inicio+':00 - '+intervalo.hora_fin+':00'}}</td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['lunes'][intervalo.IDIntervalo_horas]"></td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['martes'][intervalo.IDIntervalo_horas]"></td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['miercoles'][intervalo.IDIntervalo_horas]"></td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['jueves'][intervalo.IDIntervalo_horas]"></td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['viernes'][intervalo.IDIntervalo_horas]"></td>
+                <td><input type="checkbox" name="" ng-model="ctrl.disponibilidad['sabado'][intervalo.IDIntervalo_horas]"></td>
+            </tr>
+        </table>
+        <div style="text-align: right; width: 100%; display: inline-block;">
+            <button ng-click="ctrl.submit()" class="btn btn-success" style="float:right;cursor:pointer;">Guardar</button>
+        </div>
+    </div>
+</div>

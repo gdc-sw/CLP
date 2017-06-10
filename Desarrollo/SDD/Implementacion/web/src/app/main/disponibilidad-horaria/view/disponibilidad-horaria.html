@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="card " id="disponibilidad">
+        <button class="btn btn-info" ui-sref="index.panel-principal" style="float:right;">Regresar</button>
+        <h3>Profesor:</h3>
+        <table class="table table-bordered" style="border:1px solid black;">
+            <tr >
+                <th style="border:1px solid black;">Codigo</th>
+                <th style="border:1px solid black;">Apellido Paterno</th>
+                <th style="border:1px solid black;">Apellido Materno</th>
+                <th style="border:1px solid black;">Nombres</th>
+                <th style="border:1px solid black;">Modalidad</th>
+                <th style="border:1px solid black;">Horas</th>
+            </tr>
+            <tr >
+                <td style="border:1px solid black;">{{ctrl.profesor.codigo}}</td>
+                <td style="border:1px solid black;">{{ctrl.profesor.apellidoPaterno}}</td>
+                <td style="border:1px solid black;">{{ctrl.profesor.apellidoMaterno}}</td>
+                <td style="border:1px solid black;">{{ctrl.profesor.nombres}}</td>
+                <td style="border:1px solid black;">{{ctrl.profesor.modalidad.tipo}}</td>
+                <td style="border:1px solid black;">{{ctrl.disponibilidades.length}}</td>
+            </tr>
+        </table>
+
+        <h3>Disponibilidad</h3>
+        <button class="btn btn-warning" style="cursor:pointer;float:right;" ng-click="ctrl.imprimirDisponibilidad('disponibilidad')">
+            <span class="glyphicon glyphicon-print"></span>
+        </button>
+        <table class="table table-bordered" id="disponibilidad_horaria" style="border:1px solid black;">
+            <tr>
+                <th style="border:1px solid black;">Horario</th>
+                <th style="border:1px solid black;">Lunes</th>
+                <th style="border:1px solid black;">Martes</th>
+                <th style="border:1px solid black;">Miercoles</th>
+                <th style="border:1px solid black;">Jueves</th>
+                <th style="border:1px solid black;">Viernes</th>
+                <th style="border:1px solid black;">Sabado</th>
+            </tr>
+            <tr ng-repeat="intervalo in ctrl.intervalos">
+                <td style="border:1px solid black;">{{intervalo.hora_inicio+':00 - '+intervalo.hora_fin+':00'}}</td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked=""
+                           ng-init="ctrl.disponibilidad['lunes'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['lunes'][intervalo.IDIntervalo_horas]">
+                </td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked=""
+                           ng-init="ctrl.disponibilidad['martes'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['martes'][intervalo.IDIntervalo_horas]">
+                </td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked=""
+                           ng-init="ctrl.disponibilidad['miercoles'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['miercoles'][intervalo.IDIntervalo_horas]">
+                </td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked=""
+                           ng-init="ctrl.disponibilidad['jueves'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['jueves'][intervalo.IDIntervalo_horas]">
+                </td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked="ctrl.disponibilidad['viernes']['checked']"
+                           ng-init="ctrl.disponibilidad['viernes'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['viernes'][intervalo.IDIntervalo_horas]">
+                </td>
+                <td style="border:1px solid black;">
+                    <input type="checkbox" name=""
+                           ng-disabled="true"
+                           ng-checked=""
+                           ng-init="ctrl.disponibilidad['sabado'][intervalo.IDIntervalo_horas] = false"
+                           ng-model="ctrl.disponibilidad['sabado'][intervalo.IDIntervalo_horas]">
+                </td>
+            </tr>
+        </table>
+        <h3>Mis Cursos:</h3>
+        <div class=" row">
+            <div class="col-xs-10 col-xs-offset-1">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="item in ctrl.cursosDisponibles">
+                        <p>
+                            {{item.curso.nombre}}
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    @media print{
+        #disponibilidad_horaria{
+            page-break-inside: avoid;
+            overflow: visible;
+        }
+        .btn{
+            display: none !important;
+        }
+    }
+</style>

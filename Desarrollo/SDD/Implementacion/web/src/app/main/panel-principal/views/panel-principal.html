@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="card col-xs-6" style="text-align: center;margin-left: 25%; ">
+        <form class="form card-container text-center " style="display: inline-block">
+            <h2>Panel Principal</h2>
+            <br/>
+            <div class="form-group row">
+                <button class="btn btn-default col-xs-12 pointer" ui-sref="index.editar-profesor">
+                    Editar Datos Personales <span class="a-right glyphicon glyphicon-pencil"></span>
+                </button>
+            </div>
+            <div class="form-group row">
+                <button class="btn btn-default col-xs-12 pointer" ui-sref="index.disponibilidad-horaria">
+                    Registrar Disponibilidad Horaria &nbsp<span class="a-right glyphicon glyphicon-calendar"></span>
+                </button>
+            </div>
+            <div class="form-group row">
+                <button class="btn btn-default col-xs-12 pointer" ui-sref="index.disponibilidad-cursos">
+                    Seleccionar Cursos <span class="a-right glyphicon glyphicon-book"></span>
+                </button>
+            </div>
+            <div class="form-group row">
+                <button class="btn btn-default col-xs-12 pointer" ui-sref="index.ver-disponibilidad-horaria">
+                    Ver mi Disponibilidad <span class="a-right glyphicon glyphicon-time"></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .a-right{
+        float: right;
+    }
+</style>
